@@ -60,7 +60,7 @@ const updateIp = ip => {
 }
 
 /*
-    Send a request to the dynamic DNS service to update the IP address for the specified domain. The 'ipUpdater' object contains the domain name and the API request options.
+    Send a request to a dynamic DNS service to update the IP address for the specified domain. The 'ipUpdater' object contains the domain name and the API request options.
 */
 const updateDomain = ( ipUpdater , ip ) =>{
     return new Promise( ( resolve , reject ) => {
@@ -68,8 +68,8 @@ const updateDomain = ( ipUpdater , ip ) =>{
             name: ipUpdater.domainName,
             ipv4Address : ip
         })
-        let reqOptions = JSON.parse( JSON.stringify( ipUpdater.reqOptions ))
-        reqOptions.headers['Content-Length'] = reqData.length
+        let reqOptions = JSON.parse( JSON.stringify( ipUpdater.reqOptions )) // deep copy the request options from a config ipUpdater
+        reqOptions.headers['Content-Length'] = reqData.length // add a content length header
 
         let resData = ''
         const req = https.request( reqOptions , res => {

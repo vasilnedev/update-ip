@@ -11,5 +11,5 @@ read -p "When ready select Y to continue? (Y/N): " confirm && [[ $confirm == [yY
 cp config.json.example config.json
 nano config.json
 
-echo "Step 4. Starting Docker containers..."
+echo "Step 4. Starting Docker service..."
 docker compose up -d
