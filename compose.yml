@@ -1,0 +1,36 @@
+# This is a Docker Compose file
+# Sample usage: docker compose up
+version: '3.7'
+
+volumes:
+  server-vol:
+    driver: local
+    driver_opts:
+      type: none
+      device: $PWD
+      o: bind
+
+services:
+
+  server:
+    image: node
+    working_dir: /usr/src/app
+    environment:
+      - NODE_ENV=production
+    command: "node index.js"
+    restart: always
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+    ports:
+      - published: 3000
+        target: 3000
+
+    volumes:
+    - type: volume
+      source: server-vol
+      target: /usr/src/app

@@ -1,0 +1,27 @@
+{
+  "name": "update-ip",
+  "version": "1.0.0",
+  "description": "Automatically monitor changes in public IP addresses and seamlessly update DNS records to ensure continuous connectivity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasilnedev/update-ip.git"
+  },
+  "keywords": [
+    "Dynamic",
+    "IP",
+    "DNS"
+  ],
+  "author": "Vasil Nedev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vasilnedev/update-ip/issues"
+  },
+  "homepage": "https://github.com/vasilnedev/update-ip#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

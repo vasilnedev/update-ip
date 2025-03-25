@@ -1,3 +1,7 @@
+# Security
+config.json
+.env
+
 # Logs
 logs
 *.log
