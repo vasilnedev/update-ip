@@ -113,7 +113,7 @@ app.get( '/config' , ( req , res ) => {
 })
 
 app.get( '/health' , ( req , res ) => {
-    res.sendStatus(200)
+    res.status(200).send('OK')
 })
 
 app.listen( config.port , () => {
